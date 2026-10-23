@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cozy Cup | Patna, Bihar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+    --dark: #2C1810;
+    --gold: #D4AF37;
+    --cream: #FDFBF7;
+    --brown: #4A2E1B;
+    --gray: #7A6558;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(44,24,16,0.95);
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Home */
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(44,24,16,0.7), rgba(44,24,16,0.7)),
+        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200') center/cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 60px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    background: var(--gold);
+    color: var(--dark);
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+/* Section headings */
+section {
+    padding: 5rem 0;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+/* Menu */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #E6DDD0;
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.card-flex h3 {
+    font-size: 1.1rem;
+}
+
+.price {
+    color: var(--brown);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.desc {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+/* About */
+.about-grid,
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Reviews */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.review-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #E6DDD0;
+}
+
+/* Booking */
+.booking {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+}
+
+.booking .title {
+    color: white;
+}
+
+.booking .subtitle {
+    color: #D3C5B4;
+}
+
+.booking form {
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: left;
+}
+
+.booking input,
+.booking select {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #806A58;
+    background: #3B261C;
+    color: white;
+}
+
+.booking label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.full {
+    grid-column: span 2;
+}
+
+.notice {
+    font-size: 0.8rem;
+    background: rgba(212,175,55,0.2);
+    padding: 0.6rem;
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+}
+
+/* Contact */
+.map-box {
+    background: #E6DDD0;
+    height: 300px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #1a0f0a;
+    color: #aaa;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.85rem;
+}
+
+/* Mobile */
+@media(max-width: 768px) {
+    .about-grid,
+    .contact-grid,
+    .booking form {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: span 1;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container nav">
+        <a href="#home" class="logo">
+            <i class="fas fa-mug-hot"></i> The Cozy Cup
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#book">Book</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- 1. HOME -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Sip Happiness, Taste the Love</h1>
+        <p>Welcome to Patna's finest artisanal coffee and bake house.</p>
+        <a href="#menu" class="btn">Explore Menu</a>
+    </div>
+</section>
+
+<!-- 2. MENU -->
+<section id="menu" class="container">
+    <h2 class="title">Our Menu</h2>
+    <p class="subtitle">
+        Freshly brewed coffee, delicious bakes, and savory treats.
+    </p>
+
+    <div class="menu-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400"
+                 alt="Caramel Macchiato">
+            <div class="card-body">
+                <div class="card-flex">
+                    <h3>Caramel Macchiato</h3>
+                    <span class="price">₹220</span>
+                </div>
+                <p class="desc">
+                    Freshly steamed milk with vanilla and espresso drizzled with caramel.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400"
+                 alt="Margherita Pizza">
+            <div class="card-body">
+                <div class="card-flex">
+                    <h3>Margherita Pizza</h3>
+                    <span class="price">₹395</span>
+                </div>
+                <p class="desc">
+                    Hand-tossed crust with rich tomato sauce and fresh mozzarella.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400"
+                 alt="Grilled Paneer Sandwich">
+            <div class="card-body">
+                <div class="card-flex">
+                    <h3>Grilled Paneer Sandwich</h3>
+                    <span class="price">₹260</span>
+                </div>
+                <p class="desc">
+                    Marinated grilled cottage cheese stacked with crisp lettuce.
+                </p>
+            </div>
+        </div>
+
+        <!-- UPDATED PASTA IMAGE -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400"
+                 alt="Creamy Alfredo Pasta">
+            <div class="card-body">
+                <div class="card-flex">
+                    <h3>Creamy Alfredo Pasta</h3>
+                    <span class="price">₹340</span>
+                </div>
+                <p class="desc">
+                    Penne pasta tossed in a rich, velvety parmesan cream sauce.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400"
+                 alt="Chocolate Truffle">
+            <div class="card-body">
+                <div class="card-flex">
+                    <h3>Chocolate Truffle</h3>
+                    <span class="price">₹210</span>
+                </div>
+                <p class="desc">
+                    Decadent multi-layered rich chocolate sponge cake.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400"
+                 alt="Signature Iced Frappe">
+            <div class="card-body">
+                <div class="card-flex">
+                    <h3>Signature Iced Frappe</h3>
+                    <span class="price">₹250</span>
+                </div>
+                <p class="desc">
+                    Blended iced coffee topped with whipped cream and caramel.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 3. ABOUT US -->
+<section id="about" style="background:#F7F2EB;">
+    <div class="container about-grid">
+        <img
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600"
+            alt="Cafe Interior"
+            class="about-img">
+
+        <div>
+            <h2 class="title" style="text-align:left;">
+                About The Cozy Cup
+            </h2>
+            <p class="desc" style="font-size:1rem;">
+                Located in the heart of Patna, Bihar, The Cozy Cup was
+                created to offer a serene sanctuary for coffee lovers,
+                students, and friends. Enjoy warm lighting, ambient music,
+                and world-class brews.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 4. CUSTOMER REVIEWS -->
+<section id="reviews" class="container">
+    <h2 class="title">Customer Reviews</h2>
+    <p class="subtitle">What our patrons say about us</p>
+
+    <div class="reviews-grid">
+        <div class="review-box">
+            <div style="color:var(--gold);margin-bottom:0.5rem;">
+                ★★★★★
+            </div>
+            <p class="desc">
+                "The Caramel Macchiato is incredible! Best cafe ambiance in Patna."
+            </p>
+            <b>- Ananya Sinha</b>
+        </div>
+
+        <div class="review-box">
+            <div style="color:var(--gold);margin-bottom:0.5rem;">
+                ★★★★★
+            </div>
+            <p class="desc">
+                "Amazing pizzas and Creamy Alfredo Pasta. Highly recommended!"
+            </p>
+            <b>- Vikramaditya Roy</b>
+        </div>
+    </div>
+</section>
+
+<!-- 5. BOOK A TABLE -->
+<section id="book" class="booking">
+    <div class="container">
+        <h2 class="title">Book a Table</h2>
+        <p class="subtitle">Reserve your spot today</p>
+
+        <form id="bookForm">
+            <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" required>
+            </div>
+
+            <div>
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" required>
+            </div>
+
+            <div>
+                <label for="date">Date</label>
+                <input id="date" type="date" required>
+            </div>
+
+            <div>
+                <label for="time">Time</label>
+                <input id="time" type="time" required>
+            </div>
+
+            <div class="full">
+                <label for="guests">Guests</label>
+                <select id="guests" required>
+                    <option value="">Select guests</option>
+                    <option>2 People</option>
+                    <option>4 People</option>
+                    <option>6+ People</option>
+                </select>
+            </div>
+
+            <div class="full notice">
+                Demo booking form for college project.
+                No real reservation is made.
+            </div>
+
+            <button type="submit" class="btn full"
+                    style="border:none;">
+                Confirm Reservation
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- 6. CONTACT & LOCATION -->
+<section id="contact" class="container">
+    <h2 class="title">Contact & Location</h2>
+    <p class="subtitle">Patna, Bihar, India</p>
+
+    <div class="contact-grid">
+        <div>
+            <p class="desc" style="font-size:1rem;">
+                📍 <strong>Address:</strong>
+                Boring Road Crossing, Patna, Bihar - 800001
+            </p>
+
+            <p class="desc" style="font-size:1rem;margin:1rem 0;">
+                ⏰ <strong>Hours:</strong>
+                9:00 AM – 10:30 PM (Mon - Sun)
+            </p>
+
+            <p class="desc" style="font-size:1rem;">
+                📞 <strong>Phone:</strong> +91 98765 43210
+            </p>
+        </div>
+
+        <div class="map-box">
+            <a href="https://www.google.com/maps/search/?api=1&query=Boring+Road+Patna+Bihar"
+               target="_blank"
+               style="color:var(--dark);text-decoration:none;">
+                🗺️ View The Cozy Cup Area on Google Maps
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 The Cozy Cup, Patna, Bihar. College Project.</p>
+    </div>
+</footer>
+
+<script>
+document.getElementById('bookForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Demo reservation request received successfully!');
+    this.reset();
+});
+</script>
+
+</body>
+</html>
